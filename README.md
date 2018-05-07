@@ -1,12 +1,43 @@
 # SabermetricsFinalProject
 
+## Contents
+
+1. Usage Instructions
+2. Statistic Explanations
+3. Project Proposal
+4. Statistic Analysis
+5. Acknowledgements
+
+## Usage Instructions
+
+1. Download the PrOCalculator.ipynb file as well as the PrOData.csv file.
+2. Open the .ipynb file in Jupyter Notebook. 
+3. Run the first cell only.
+4. Enter any player's first name followed by the second name who has played between 2010 and 2016.
+5. After the data has been displayed, type y if you would like to lookup another player and n if you are done.
+
+Known Issues
+
+- If the kernel dies, the cell needs to be re-run. This is believed to be a bug in Jupyter Notebook and not the program itself.
+- Some more obscure players that did have at bats between 2010 and 2016 may not be contained in the database. This is most likely due to a 1000 row limit enforced in the SQL script for efficiency purposes.
+
+## Statistic Explanations
+
+- PrOO: Productive Out Opportunities. Number of at bats with less than two outs and a runner in scoring position.
+- PrO: Productive Outs. Productive Out Opportunites that produced a run or advanced a base runner.
+- PrO%: Ratio of Productive Outs to Productive Out Opportunities. Main focus of this program and project.
+- Pro_RBI: Number of productive outs that produced an RBI.
+- Pro_RBI%: Percentage of productive outs that produced an RBI.
+- Total SO%: Overall percentage of at bats that resulted in a strikeout.
+- PrO SO%: Percentage of Productive Out Opportunites that resulted in a strikeout. 
+
 ## Project Proposal
 
 Often in this class we have spent time talking about measuring a players contribution in terms of runs that the player in question is contributing to his team. We have done this in many ways. Some were inefficient such as counting RBIs, while others were better such as calculating how many runs an at bat was worth by run expectancy. One thing that I don’t think we have touched on enough is the ability of a player to create a productive out, meaning an out that resulted in a run or advanced base runner. I will be calling this statistic PrO%, or Productive Out Percentage. I believe this statistic would be an accurate metric to measure a player’s contribution to the “small ball” part of the game.
 
 Given that the data I need will be in the form of play by play information, I will be using the same Retrosheet database that we have been using in the class. I will be pulling all plays in which the batter was up to bat with runners on second or third and less than two outs. I will consider this to be the plays in which a player has an opportunity to create a productive out and will call the total number of these plays per player PrOO or Productive Out Opportunities. I will then count the number of PrOOs in which the batter was ruled out but a run scored or a runner advanced. This count will be called Productive Outs or PrOs. Thus, PrO% will be calculated as indicated below:
 
-PrO% =PrO/PrOO
+PrO% = PrO/PrOO
 
 To expand upon this idea, I am considering evolving the statistic to weight productive outs that result in runs heavier than those that merely advanced the base runner. I would also put emphasis on outs in which runners advanced and runs scored. I do not know what weights I would assign and it would most likely take a fair amount of tinkering to get right. For that reason I consider this to be a stretch goal for the project. I am considering using the ratio of run value for the two different kinds of at bats to weight them but that is just my preliminary idea.
 
@@ -31,3 +62,10 @@ It is worth nothing that the PrO% tended to unsurprisingly favor contact, "slap"
 I created a correlation matrix (available in the jupyter notebook) to compare the PrO% statistic to other stats that may be useful in predicting a player's ability to create a productive out. One thing that I was certain I would see would be a strong negative correlation between PrO% and strikeouts. It seemed intuitive that a player's ability to create a productive out would be highly influenced by his ability to put the bat on the ball. Surprisingly, while there was a notable negative correlation coefficient when comparing PrO% to Strike Outs, the R-squared value came out to a mere 0.035. In fact, PrO% seemed to be poorly correlated with the vast majority of other metrics. It's strongest correlation was with RBI% (the precentage of PrO that resulted in RBIs) and even that was only 0.13.
 
 This could draw me to one of two conclusions. First, I could conclude that the loose correlation between PrO% and other commonly accepted metrics of performance is indicative of the poor quality of a productive out metric. Second, I may conclude that this metric is simply along a different line of thinking and player evaluation metrics than those already in place. I do firmly believe that measuring a players ability to be productive, even in an out, is a valuable metric, but I acknowledge that there may be shortcomings in my calculation. I believe that future work on this subject should focus on assigning weights to different types of productive outs. If sabermetrics is about measuring a players ability to create runs and therefore wins for his team, a metric that evaluates the ability for a player to do that, even while creating an out, must hold some value.
+
+## Acknowledgements
+
+- Retrosheet 2010-2016: Provided raw data for calculation.
+- Baseball Reference: Provided average statistics used for comparison.
+- MySQL Workbench: Used for generation of data tables
+- Jupyter Notebook: Used for application of statistic
