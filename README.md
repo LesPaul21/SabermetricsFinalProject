@@ -2,11 +2,20 @@
 
 ## Contents
 
-1. Usage Instructions
-2. Statistic Explanations
-3. Project Proposal
-4. Statistic Analysis
-5. Acknowledgements
+1. Repository Contents
+2. Usage Instructions
+3. Statistic Explanations
+4. Project Proposal
+5. Statistic Analysis
+6. Acknowledgements
+
+## Repository Contents
+
+- PrOCalculator.ipynb: Main application. Usage is explained in usage instructions.
+- PrOData.csv: CSV file containing all relevant data needed for calculation.
+- PrODataGeneration.sql: SQL file used to generate the CSV from Retrosheet.
+- README.md: This file
+- Statistic Proposal.pdf: Explanation of the usefulness of the statistic.
 
 ## Usage Instructions
 
