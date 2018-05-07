@@ -2,6 +2,8 @@
 
 ## Contents
 
+Video Link: https://vimeo.com/268314522
+
 1. Repository Contents
 2. Usage Instructions
 3. Statistic Explanations
